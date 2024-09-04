@@ -37,16 +37,6 @@ def get_ip_info(api_key, ip):
         print("URLError: {0}".format(e.reason))
         sys.exit(1)
 
-def find_nearest_cidr(ip_info):
-    # Placeholder function: Replace this with a real implementation
-    # For demonstration, it returns a hardcoded CIDR block for the same country
-    country_code = ip_info.get("country_code")
-    if country_code:
-        return "Nearest CIDR in {0}: Example CIDR block".format(country_code)
-    else:
-        print("Country code not found in IP information.")
-        sys.exit(1)
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="IP Locator Tool using IP2Location API")
     parser.add_argument("--api-key", type=str, help="API key for IP2Location (if not using keyless mode)")
@@ -61,5 +51,3 @@ if __name__ == "__main__":
     print("Coordinates for IP {0}: Latitude {1}, Longitude {2}".format(
         ip, ip_info.get('latitude'), ip_info.get('longitude')))
     
-    nearest_cidr = find_nearest_cidr(ip_info)
-    print(nearest_cidr)
